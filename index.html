@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lucas Daly</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+
+
+</head>
+<body id="home"; onscroll="blurText()">
+
+
+<div class="button-container">
+    <a href="#home">
+        <button class="menu-button">
+            Ld.
+        </button>
+    </a>
+
+    <a href="#about">
+        <button class="menu-button">
+            About
+        </button>
+    </a>
+
+    <a>
+        <button class="menu-button">
+            Projects
+        </button>
+    </a>
+
+    <a href="#contact">
+        <button class="menu-button">
+            Contact
+        </button>
+    </a>
+</div>
+
+
+<!-- Home Screen -->
+
+<div class="screen">
+
+    <h1
+            style="margin-top: 20vh; font-size: 5em"
+
+    >
+        Hi, I'm Lucas.
+
+    </h1>
+
+    <p style="
+    font-size: 1.5em;
+margin-top: 50px">
+        I'm a software developer.
+    </p>
+
+
+</div>
+
+
+<!-- About Page -->
+
+<div class="screen" id="about">
+
+    <h1>
+        About
+    </h1>
+
+    <p>
+        about text
+
+    </p>
+
+
+
+
+
+
+</div>
+
+
+<!-- Contact -->
+
+<div class="screen" id="contact">
+
+    <h1>
+        Contact
+    </h1>
+
+    <p>
+        Shoot me an email at <a href= "mailto: name@email.com"> name@email.com</a>.
+    </p>
+
+
+
+
+
+
+</div>
+
+<button onclick="blurText()">poo</button>
+
+<div class="container">
+    <p style="font-size: 0.9em;margin-left: 0; font-family: IBM-Light,sans-serif">&copy 2024 Lucas Daly</p>
+
+</div>
+
+
+<script>
+
+    function blurText() {
+        // Select all paragraph and header elements (p, h1, h2, h3, etc.)
+        var elements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6");
+
+        // Set the reference point (e.g., the top of the button container)
+        var referencePoint = document.querySelector('.button-container').getBoundingClientRect().top;
+
+        // Loop through each selected element
+        elements.forEach(function(element) {
+            var elementText = element.textContent;
+            var words = elementText.split(" ");  // Split the element content into words
+
+            // Loop through each word
+            for (var j = 0; j < words.length; j++) {
+                // Create a temporary span to measure position
+                var tempSpan = document.createElement('span');
+                tempSpan.textContent = words[j] + " ";
+                element.appendChild(tempSpan);
+
+                // Calculate the distance from the reference point
+                var wordPosition = tempSpan.getBoundingClientRect().top;
+                var distanceFromReference = wordPosition - referencePoint;
+
+                // Calculate blur amount based on distance
+                var blurAmount = Math.max(0, 15 - distanceFromReference / 10); // Adjust formula as needed
+
+                // Calculate alpha (transparency) based on distance
+                var alpha = Math.max(0, distanceFromReference / 100); // Adjust formula as needed
+                alpha = Math.min(alpha, 1); // Ensure alpha doesn't go above 1
+
+                // Apply blur and transparency effect if within range
+                if (blurAmount > 0 || alpha < 1) {
+                    words[j] = `<span style="filter: blur(${blurAmount}px); opacity: ${alpha};">${words[j]}</span>`;
+                }
+
+                // Remove the temporary span after measurement
+                element.removeChild(tempSpan);
+            }
+
+            // Join the words back into a single string and set it as the element's HTML
+            element.innerHTML = words.join(" ");
+        });
+    }
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
