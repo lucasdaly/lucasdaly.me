@@ -1,3 +1,16 @@
-* {
-    font-family: Arial, Helvetica, sans-serif;
+:root {
+    --prim-bg-color: #0D0D0D;
+    --prim-text-color: #EDEDED;
 }
+
+* {
+    font-family: nimbus-sans, sans-serif;
+}
+
+body {
+
+    background-color: var(--prim-bg-color);
+    color: var(--prim-text-color);
+
+}
+
