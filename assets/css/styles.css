@@ -1,6 +1,6 @@
 :root {
-    --prim-bg-color: #0D0D0D;
-    --prim-text-color: #EDEDED;
+    --prim-bg-color: #ffffff;
+    --prim-text-color: #000000;
 }
 
 * {
@@ -12,5 +12,23 @@ body {
     background-color: var(--prim-bg-color);
     color: var(--prim-text-color);
 
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.75rem
+}
+
+.social-link {
+    color: var(--prim-text-color);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    font-weight: 600;
 }
 
