@@ -1,6 +1,8 @@
 :root {
-    --prim-bg-color: #ffffff;
-    --prim-text-color: #000000;
+    --prim-bg-color: #F6F7F9;
+    --prim-text-color: #111827;
+    --accent-text-color: #334155;
+    --muted-text-color: #4B5563;
 }
 
 * {
@@ -14,21 +16,37 @@ body {
 
 }
 
-h1 {
+.main_h {
     font-size: 3rem;
 }
 
-p {
+.main_p {
     font-size: 1.125rem;
-    line-height: 1.75rem
+    line-height: 1.75rem;
+    color: var(--muted-text-color);
 }
 
 .social-link {
     color: var(--prim-text-color);
     text-decoration: none;
+    padding-right: 0.5rem;
+    font-size: 0.8rem;
+
+    transition: color 0.3s ease;
 }
 
 .social-link:hover {
-    font-weight: 600;
+    color: var(--accent-text-color);
+    
+}
+
+.page_container {
+
+    
+}
+
+.title_card {
+    padding-left: 30vw;
+    padding-top: 33vh;
 }
 
