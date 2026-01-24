@@ -136,8 +136,9 @@ body {
     .page_container {
         flex-direction: column;
         padding: 2rem 1.25rem;
-        padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+        padding-bottom: calc(4rem + env(safe-area-inset-bottom));
         min-height: 100vh;
+        min-height: 100svh;
     }
 
     .title_card,
@@ -171,10 +172,14 @@ body {
     }
 
     .footer {
-        position: static;
+        position: fixed;
         width: 100%;
         text-align: center;
-        margin-top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding-bottom: env(safe-area-inset-bottom);
+        margin-top: 0;
         order: 3;
     }
 
